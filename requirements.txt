@@ -1,0 +1,16 @@
+fastapi
+sqlalchemy==2.0.0
+pydantic==2.6.4
+passlib
+uvicorn
+python-multipart
+PyJWT==2.8.0
+hypercorn==0.14.4
+Jinja2==3.1.2
+websockets==12.0
+psycopg2-binary
+python-dotenv
+alembic~=1.13.0
+requests
+asyncpg~=0.29.0
+email-validator
