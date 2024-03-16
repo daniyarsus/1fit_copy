@@ -31,5 +31,18 @@ class ItemController(BaseItemController):
                 name=item.name
             )
 
+            self.db.add(item)
+            await self.db.commit()
+
+            return JSONResponse(
+                status_code=201,
+                content={
+                    "message": "Item created successfully"
+                }
+            )
+
         except HTTPException as e:
-            raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(
+                status_code=500,
+                detail=str(e)
+            )

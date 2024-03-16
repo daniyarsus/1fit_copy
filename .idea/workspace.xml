@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/services/check/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/check/app/check/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/check/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/check/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/script.py.mako" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/alembic.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/script.py.mako" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/settings/db/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,10 +74,10 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/auth" />
       <recent name="$PROJECT_DIR$/src/services/check" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/services/check/app" />
-      <recent name="$PROJECT_DIR$/src/services/auth" />
       <recent name="$PROJECT_DIR$/src/services" />
     </key>
   </component>
@@ -270,7 +278,7 @@
       <workItem from="1710543342304" duration="15000" />
       <workItem from="1710543366028" duration="18000" />
       <workItem from="1710606324309" duration="2165000" />
-      <workItem from="1710608503602" duration="3016000" />
+      <workItem from="1710608503602" duration="4381000" />
     </task>
     <servers />
   </component>
