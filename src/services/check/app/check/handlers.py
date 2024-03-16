@@ -1,4 +1,6 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, HTTPException, status
+
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.services.check.app.check import schemas
 from src.services.check.app.utils.dependencies.db import get_session
@@ -13,7 +15,7 @@ router = APIRouter()
 )
 async def create_item_endpoint(
         item: schemas.CreateItem,
-        db: Session = Depends(get_session)
+        db: AsyncSession = Depends(get_session)
 ):
     item_controller = ItemController(
         db=db
