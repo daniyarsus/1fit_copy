@@ -5,18 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/check/alembic.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/check/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/app/utils/dependencies/current_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/check/app/utils/dependencies/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/check/settings/db/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/check/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/api/dependencies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/api/routers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/models/payment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/repositories/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/schemas/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/app/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/settings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/settings/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment/settings/db/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/migrations/script.py.mako" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth/settings/db/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/auth/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signin/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/auth/alembic.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/utils/dependencies/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/script.py.mako" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auth/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/db/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/settings/db/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/check/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/check/alembic.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/controllers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/dependencies/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/utils/dependencies/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/dependencies/current_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/utils/dependencies/current_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/dependencies/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/utils/dependencies/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/script.py.mako" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/check/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/settings/db/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/db/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/check/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/db/database.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,14 +103,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Docker.auth_service/Dockerfile.executor": "Run",
+    "Docker.check/Dockerfile.executor": "Run",
     "Python.config (1).executor": "Run",
     "Python.config (2).executor": "Run",
     "Python.config.executor": "Run",
+    "Python.db.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/king/PycharmProjects/1fit_copy/src/services/check",
+    "last_opened_file_path": "/home/king/PycharmProjects/1fit_copy/src/services/auth/app/utils",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,19 +123,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/auth/app/utils" />
+      <recent name="$PROJECT_DIR$/src/services/payment" />
       <recent name="$PROJECT_DIR$/src/services/check" />
       <recent name="$PROJECT_DIR$/src/services/auth/app/signup" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/services/payment/app" />
       <recent name="$PROJECT_DIR$/src/services/auth" />
       <recent name="$PROJECT_DIR$/src/services/check" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/services/check/app" />
-      <recent name="$PROJECT_DIR$/src/services" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.config (2)">
+  <component name="RunManager" selected="Docker.check/Dockerfile">
     <configuration name="config (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="1fit_copy" />
       <option name="ENV_FILES" value="" />
@@ -128,7 +184,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="1fit_copy" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,35 +193,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/settings" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/services/check/app/utils/dependencies" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/settings/config.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="1fit_copy" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/api" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/api/services/v1/auth_service/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/services/check/app/utils/dependencies/db.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,13 +221,21 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="check/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="check/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.check/Dockerfile" />
+        <item itemvalue="Python.db" />
         <item itemvalue="Python.config (2)" />
         <item itemvalue="Docker.auth/Dockerfile: Compose Deployment" />
         <item itemvalue="Python.config (1)" />
-        <item itemvalue="Python.config" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +319,31 @@
       <workItem from="1710543342304" duration="15000" />
       <workItem from="1710543366028" duration="18000" />
       <workItem from="1710606324309" duration="2165000" />
-      <workItem from="1710608503602" duration="4381000" />
+      <workItem from="1710608503602" duration="6592000" />
+      <workItem from="1710618574623" duration="179000" />
+      <workItem from="1710619576863" duration="16000" />
+      <workItem from="1710619844532" duration="147000" />
+      <workItem from="1710620221659" duration="1000" />
+      <workItem from="1710620348437" duration="2000" />
+      <workItem from="1710621146726" duration="1000" />
+      <workItem from="1710622799559" duration="184000" />
+      <workItem from="1710623758658" duration="14000" />
+      <workItem from="1710624133949" duration="1000" />
+      <workItem from="1710624816886" duration="4000" />
+      <workItem from="1710651442755" duration="18000" />
+      <workItem from="1710651560823" duration="126000" />
+      <workItem from="1710651699662" duration="147000" />
+      <workItem from="1710651853843" duration="237000" />
+      <workItem from="1710652103699" duration="2056000" />
+      <workItem from="1710655203333" duration="627000" />
+      <workItem from="1710655989834" duration="541000" />
+      <workItem from="1710657215060" duration="1766000" />
+      <workItem from="1710664141057" duration="2347000" />
+      <workItem from="1710668844072" duration="1707000" />
+      <workItem from="1710678046654" duration="2112000" />
+      <workItem from="1710685057255" duration="1159000" />
+      <workItem from="1710686596412" duration="825000" />
+      <workItem from="1710688328949" duration="707000" />
     </task>
     <servers />
   </component>
@@ -289,6 +354,7 @@
     <SUITE FILE_PATH="coverage/1fit_copy$main.coverage" NAME="main Coverage Results" MODIFIED="1710395316844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/api" />
     <SUITE FILE_PATH="coverage/1fit_copy$config.coverage" NAME="config Coverage Results" MODIFIED="1710410570448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/settings" />
     <SUITE FILE_PATH="coverage/1fit_copy$config__1_.coverage" NAME="config (1) Coverage Results" MODIFIED="1710490569786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/api/services/v1/auth_service/settings" />
+    <SUITE FILE_PATH="coverage/1fit_copy$db.coverage" NAME="db Coverage Results" MODIFIED="1710684953484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/services/check/app/utils/dependencies" />
     <SUITE FILE_PATH="coverage/1fit_copy$config__2_.coverage" NAME="config (2) Coverage Results" MODIFIED="1710610957826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/services/auth/settings" />
   </component>
 </project>
