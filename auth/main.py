@@ -5,7 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from auth.settings.db.database import Base, async_engine
+
 from auth.app.signup.handlers import router as register_router
+from auth.app.signin.handlers import router as login_router
 
 
 app = FastAPI(
@@ -26,6 +28,7 @@ app.add_middleware(
 
 
 app.include_router(register_router, prefix="/v1/registration", tags=["Registration API"])
+app.include_router(login_router, prefix="/v1/login", tags=["Login API"])
 
 
 @app.get(

@@ -2,17 +2,19 @@ from datetime import datetime, timedelta
 from typing import Union
 from jose import JWTError, jwt
 
-from fastapi import FastAPI
+from fastapi import APIRouter, Depends, HTTPException, status
+
+from auth.settings.config import settings
 
 
-app = FastAPI()
+router = APIRouter()
 
 
-@app.post("/jwt-create")
+@router.post("/jwt-create")
 # Функция для создания JWT токена с ролью в виде целого числа и именем пользователя
 def create_jwt_token(username: str, role: int, expires_delta: Union[timedelta, int] = 1800):
     # Определите ваш секретный ключ
-    SECRET_KEY = "123"
+    SECRET_KEY = settings.jwt_config.SECRET_KEY
     # Определите алгоритм шифрования
     ALGORITHM = "HS256"
     # Преобразуйте expires_delta в timedelta, если он представлен в секундах

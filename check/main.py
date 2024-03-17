@@ -7,7 +7,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from check.settings.db.database import Base, async_engine
+
 from check.app.check.handlers import router as item_router
+from check.app.test.handlers import router as test_router
 
 
 app = FastAPI(
@@ -28,6 +30,7 @@ app.add_middleware(
 
 
 app.include_router(item_router, prefix="/v1/item")
+app.include_router(test_router, prefix="/v1/test")
 
 
 @app.get(

@@ -20,10 +20,15 @@ class PostgresDatabaseConfig:
         return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
 
+class JWTConfig:
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+
+
 @dataclass
 class Settings:
     def __init__(self):
         self.pg_database = PostgresDatabaseConfig()
+        self.jwt_config = JWTConfig()
 
 
 settings: Settings = Settings()

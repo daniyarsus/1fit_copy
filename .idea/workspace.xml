@@ -5,70 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/auth/app/utils/dependencies/current_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check/app/utils/dependencies/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check/settings/db/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/api/dependencies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/api/routers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/models/payment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/repositories/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/schemas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/app/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/settings/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment/settings/db/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/app/signin/controllers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/app/signin/handlers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/app/signin/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/settings/db/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/auth/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signin/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/auth/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/app/signup/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/signup/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/utils/dependencies/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/script.py.mako" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auth/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/db/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/settings/db/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/check/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/check/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/check/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/check/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/dependencies/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/utils/dependencies/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/dependencies/current_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/utils/dependencies/current_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/app/utils/dependencies/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/utils/dependencies/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/migrations/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/check/migrations/script.py.mako" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/check/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/settings/db/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/db/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/check/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/db/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/settings/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -343,7 +289,7 @@
       <workItem from="1710678046654" duration="2112000" />
       <workItem from="1710685057255" duration="1159000" />
       <workItem from="1710686596412" duration="825000" />
-      <workItem from="1710688328949" duration="707000" />
+      <workItem from="1710688328949" duration="1986000" />
     </task>
     <servers />
   </component>
