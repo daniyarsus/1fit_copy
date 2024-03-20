@@ -55,12 +55,14 @@ class RegisConfig:
     REDIS_URL_JWT: str = "redis://default:djeccefRRQKZqGoJBSbOKtprwgVvzHaN@viaduct.proxy.rlwy.net:41224"
     REDIS_URL_REGISTER: str = "redis://default:CijwltpFcTQzdvLjyEPmuVYnoigBMxkX@viaduct.proxy.rlwy.net:42928"
     REDIS_URL_PASSWORD: str = "redis://default:agRLsHFWsxRIxDdMVjzFeWRAuHGvUxBM@monorail.proxy.rlwy.net:16515"
+    REDIS_URL_USER: str = "redis://default:OwOnXncfvETHiSzBSiChjgsQTdHMynrs@roundhouse.proxy.rlwy.net:48250"
 
     def __str__(self):
         return (
             f"REDIS_URL_JWT: {self.REDIS_URL_JWT}, "
             f"REDIS_URL_REGISTER: {self.REDIS_URL_REGISTER}, "
-            f"REDIS_URL_PASSWORD: {self.REDIS_URL_PASSWORD}"
+            f"REDIS_URL_PASSWORD: {self.REDIS_URL_PASSWORD}, "
+            f"REDIS_URL_USER: {self.REDIS_URL_USER}"
         )
 
 

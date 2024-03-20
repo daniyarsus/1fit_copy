@@ -12,7 +12,7 @@ from app.repository.base import AbstractRepository
 from app.schemas.password import SendPasswordCodeSchema, VerifyPasswordCodedSchema
 
 from app.settings.config import settings
-from app.settings.redis.connection import redis_client_password
+from app.settings.redis.connection import redis_client_password, redis_client_user, redis_client_jwt
 
 from app.utils.help.generate_code import generate_verification_code
 
@@ -82,7 +82,7 @@ class PasswordService:
 
             await self.users_repo.edit_one({'password': data.new_password}, email=data.email)
 
-            # Удаляем код подтверждения из Redis
+            # Удаляем код подтверждения из Redis-password
             await redis_client_password.delete(data.email)
 
             return JSONResponse(

@@ -19,7 +19,7 @@ class LogoutService:
     async def logout_user(data: LogoutSchema) -> Optional[JSONResponse | HTTPException]:
         try:
             token = data.jwt
-            token_ttl = int(timedelta(minutes=60).total_seconds())
+            token_ttl = int(timedelta(minutes=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS).total_seconds())
 
             # Декодировать JWT и получить полезную нагрузку
             try:
@@ -30,9 +30,9 @@ class LogoutService:
                     detail=str(e)
                 )
 
-            username = payload["username"]
+            id = payload["id"]
             # Добавить в Redis JWT в качестве ключа и имя пользователя в качестве значения
-            await redis_client.set(name=token, value=username, ex=token_ttl)
+            await redis_client_jwt.set(name=id, value=token, ex=token_ttl)
 
         except Exception as e:
             raise HTTPException(

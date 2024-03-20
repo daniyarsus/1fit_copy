@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from redis import asyncio as redis
+
 from sqlalchemy import insert, select, delete, update
 
 from app.settings.db.connection import async_session
@@ -68,3 +70,30 @@ class SQLAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar_one_or_none()
 
+
+class AbstractRedisRepository(ABC):
+    @abstractmethod
+    async def set_value(self, key: str, value: str, expire: int = None):
+        pass
+
+    @abstractmethod
+    async def get_value(self, key: str):
+        pass
+
+    @abstractmethod
+    async def delete_key(self, key: str):
+        pass
+
+
+class RedisRepository(AbstractRedisRepository):
+    def __init__(self, redis_url: str):
+        self._redis = redis.from_url(redis_url)
+
+    async def set_value(self, key: str, value: str, expire: int = None):
+        await self._redis.set(name=key, value=value, ex=expire)
+
+    async def get_value(self, key: str):
+        return await self._redis.get(key=key)
+
+    async def delete_key(self, key: str):
+        await self._redis.delete(key=key)

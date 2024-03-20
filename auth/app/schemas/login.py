@@ -15,3 +15,7 @@ class LoginEmailSchema(BaseModel):
 class LoginPhoneSchema(BaseModel):
     phone: Annotated[int, Field(ge=80000000000, le=99999999999)]
     password: Annotated[str, Field(min_length=8, max_length=25)]
+
+
+class UpdateRefreshTokenSchema(BaseModel):
+    jwt: Annotated[str, Field(...)]

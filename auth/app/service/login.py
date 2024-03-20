@@ -7,9 +7,11 @@ from jose import jwt, JWTError
 
 from app.repository.base import AbstractRepository
 
-from app.schemas.login import LoginUsernameSchema, LoginEmailSchema, LoginPhoneSchema
+from app.schemas.login import LoginUsernameSchema, LoginEmailSchema, LoginPhoneSchema, UpdateRefreshTokenSchema
 
 from app.settings.config import settings
+
+from app.settings.redis.connection import redis_client_user
 
 
 SECRET_KEY = settings.jwt_config.SECRET_KEY
@@ -68,8 +70,24 @@ class LoginService:
         if not user.password == data.password:
             raise HTTPException(status_code=400, detail="Неверный пароль!")
 
-        access_token = await self._create_access_token(data={"username": user.username})
-        refresh_token = await self._create_refresh_token(data={"username": user.username})
+        access_token = await self._create_access_token(
+            data={
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "phone": user.phone
+            }
+        )
+        refresh_token = await self._create_refresh_token(
+            data={
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "phone": user.phone
+            }
+        )
+
+        await redis_client_user.set(name=str(user.id), value=refresh_token, ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
         return {"access_token": access_token, "refresh_token": refresh_token}
 
@@ -79,8 +97,24 @@ class LoginService:
         if not user.password == data.password:
             raise HTTPException(status_code=400, detail="Неверный пароль!")
 
-        access_token = await self._create_access_token(data={"email": user.email})
-        refresh_token = await self._create_refresh_token(data={"email": user.email})
+        access_token = await self._create_access_token(
+            data={
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "phone": user.phone
+            }
+        )
+        refresh_token = await self._create_refresh_token(
+            data={
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "phone": user.phone
+            }
+        )
+
+        await redis_client_user.set(name=str(user.id), value=refresh_token, ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
         return {"access_token": access_token, "refresh_token": refresh_token}
 
@@ -90,7 +124,49 @@ class LoginService:
         if not user.password == data.password:
             raise HTTPException(status_code=400, detail="Неверный пароль!")
 
-        access_token = await self._create_access_token(data={"phone": user.phone})
-        refresh_token = await self._create_refresh_token(data={"phone": user.phone})
+        access_token = await self._create_access_token(
+            data={
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "phone": user.phone
+            }
+        )
+        refresh_token = await self._create_refresh_token(
+            data={
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+                "phone": user.phone
+            }
+        )
+
+        await redis_client_user.set(name=str(user.id), value=refresh_token, ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
         return {"access_token": access_token, "refresh_token": refresh_token}
+
+    async def update_refresh_token(self, data: UpdateRefreshTokenSchema):
+        try:
+            decoded_token = jwt.decode(data.refresh_token, SECRET_KEY, algorithms=[ALGORITHM])
+            user_id = decoded_token.get("id")
+            if user_id:
+                refresh_token = await redis_client_user.get(str(user_id))
+
+                if refresh_token and refresh_token.decode("utf-8") == data.refresh_token:
+                    new_refresh_token = await self._create_refresh_token(
+                        data={
+                            "id": user_id,
+                            "username": decoded_token.get("username"),
+                            "email": decoded_token.get("email"),
+                            "phone": decoded_token.get("phone")
+                        }
+                    )
+
+                    await redis_client_user.set(name=str(user_id), value=new_refresh_token,
+                                                ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+
+                    return {"refresh_token": new_refresh_token}
+
+        except JWTError:
+            pass
+        raise HTTPException(status_code=401, detail="Не верный токен!")

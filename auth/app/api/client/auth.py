@@ -8,7 +8,7 @@ from app.schemas.register import RegisterSchema, SendEmailCodeSchema, VerifyEmai
 from app.service.register import RegisterService
 from app.api.dependencies import register_service
 
-from app.schemas.login import LoginPhoneSchema, LoginEmailSchema, LoginUsernameSchema
+from app.schemas.login import LoginPhoneSchema, LoginEmailSchema, LoginUsernameSchema, UpdateRefreshTokenSchema
 from app.service.login import LoginService
 from app.api.dependencies import login_service
 
@@ -87,6 +87,15 @@ async def create_token_endpoint(
         users_service: Annotated[LoginService, Depends(login_service)]
 ):
     result = await users_service.login_by_phone(data)
+    return result
+
+
+@router.post("/signin/update-refresh-token")
+async def update_refresh_token_endpoint(
+        data: UpdateRefreshTokenSchema,
+        users_service: Annotated[LoginService, Depends(login_service)]
+):
+    result = await users_service.update_refresh_token(data)
     return result
 
 
