@@ -17,3 +17,9 @@ email-validator
 python-jose==3.3.0
 aiosqlite
 gunicorn
+redis==5.0.3
+aiohttp
+aiosignal
+attrs
+frozenlist
+multidict

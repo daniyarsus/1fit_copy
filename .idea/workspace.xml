@@ -5,54 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/1fit_copy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/1fit_copy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth/app/service/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/auth/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signin/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signin/controllers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signin/handlers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signin/schemas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signup/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signup/controllers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signup/handlers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/signup/schemas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/utils/dependencies/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/utils/dependencies/current_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/utils/dependencies/db.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/app/api/client/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/api/client/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/app/api/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/api/dependencies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/app/schemas/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/schemas/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/app/schemas/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/schemas/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/app/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/settings/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auth/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/settings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/settings/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/settings/db/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/settings/db/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/settings/db/database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/app/test/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/app/test/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/check/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/settings/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/settings/db/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/api/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/api/dependencies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/api/routers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/models/payment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/repositories/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/schemas/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/app/services/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/settings/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/settings/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/settings/db/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/settings/db/database.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -387,7 +347,7 @@
       <workItem from="1710877659310" duration="1000" />
       <workItem from="1710878510588" duration="1000" />
       <workItem from="1710914167146" duration="51000" />
-      <workItem from="1710914226470" duration="21000" />
+      <workItem from="1710914226470" duration="5153000" />
     </task>
     <servers />
   </component>

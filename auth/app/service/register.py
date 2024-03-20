@@ -26,6 +26,7 @@ class RegisterService:
             existing_username = await self.users_repo.get_one(username=data.username)
             existing_email = await self.users_repo.get_one(email=data.email)
             existing_phone = await self.users_repo.get_one(phone=data.phone)
+
             if existing_username or existing_email or existing_phone:
                 raise HTTPException(
                     status_code=400,

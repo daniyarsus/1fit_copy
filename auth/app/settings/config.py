@@ -34,10 +34,16 @@ class JWTConfig:
     #SECRET_KEY = os.environ.get("SECRET_KEY")
 
     SECRET_KEY: str = "fuosdp82ipo21epoqwpoe129fdspom12"
+    ALGORITHM: str = 'HS256'
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 5
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 5 * 24 * 60 * 60
 
     def __str__(self):
         return (
-            f"{self.SECRET_KEY}"
+            f"SECRET_KEY: {self.SECRET_KEY},"
+            f"ALGORITHM: {self.ALGORITHM}, "
+            f"ACCESS_TOKEN_EXPIRE_MINUTES: {self.ACCESS_TOKEN_EXPIRE_MINUTES}, "
+            f"REFRESH_TOKEN_EXPIRE_DAYS: {self.REFRESH_TOKEN_EXPIRE_DAYS}"
         )
 
 

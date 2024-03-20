@@ -8,13 +8,17 @@ from app.schemas.register import RegisterSchema, SendEmailCodeSchema, VerifyEmai
 from app.service.register import RegisterService
 from app.api.dependencies import register_service
 
-from app.schemas.logout import LogoutSchema
-from app.service.logout import LogoutService
-from app.api.dependencies import logout_service
+from app.schemas.login import LoginPhoneSchema, LoginEmailSchema, LoginUsernameSchema
+from app.service.login import LoginService
+from app.api.dependencies import login_service
 
 from app.schemas.password import SendPasswordCodeSchema, VerifyPasswordCodedSchema
 from app.service.password import PasswordService
 from app.api.dependencies import password_service
+
+from app.schemas.logout import LogoutSchema
+from app.service.logout import LogoutService
+from app.api.dependencies import logout_service
 
 
 router = APIRouter()
@@ -53,30 +57,37 @@ async def verify_code_endpoint(
     return result
 
 
-#@router.post(
-#   "/signin/token"
-#)
-#async def create_token_endpoint():
-#    ...
+@router.post(
+   "/signin/token-username"
+)
+async def create_token_endpoint(
+        data: LoginUsernameSchema,
+        users_service: Annotated[LoginService, Depends(login_service)]
+):
+    result = await users_service.login_by_username(data)
+    return result
 
 
-@router.post("/jwt-create")
-# Функция для создания JWT токена с ролью в виде целого числа и именем пользователя
-def create_jwt_token(id: int, username: str, role: int, expires_delta: Union[timedelta, int] = 36000):
-    # Определите ваш секретный ключ
-    SECRET_KEY = "fuosdp82ipo21epoqwpoe129fdspom12"
-    # Определите алгоритм шифрования
-    ALGORITHM = "HS256"
-    # Преобразуйте expires_delta в timedelta, если он представлен в секундах
-    if isinstance(expires_delta, int):
-        expires_delta = timedelta(seconds=expires_delta)
-    # Определите время истечения токена
-    expire = datetime.utcnow() + expires_delta
-    # Подготовьте данные для токена
-    to_encode = {"id": id, "username": username, "role": role, "exp": expire}
-    # Подпишите и верните токен
-    from jose import jwt
-    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+@router.post(
+   "/signin/token-email"
+)
+async def create_token_endpoint(
+        data: LoginEmailSchema,
+        users_service: Annotated[LoginService, Depends(login_service)]
+):
+    result = await users_service.login_by_email(data)
+    return result
+
+
+@router.post(
+   "/signin/token-phone"
+)
+async def create_token_endpoint(
+        data: LoginPhoneSchema,
+        users_service: Annotated[LoginService, Depends(login_service)]
+):
+    result = await users_service.login_by_phone(data)
+    return result
 
 
 @router.post(
