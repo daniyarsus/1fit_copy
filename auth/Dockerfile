@@ -1,22 +1,16 @@
-# Use the official Python image
-FROM python:3.9
+FROM python:3.10
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN mkdir /app
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt .
 
-# Copy the application code into the container
-COPY . /app/
+RUN pip install -r requirements.txt
 
-# Expose the port the app runs on
-EXPOSE 8000
+COPY . .
 
-# Command to run the application
-CMD ["uvicorn", "auth.main:app", "--host", "0.0.0.0", "--port", "8000"]
+#WORKDIR demo1
+
+#CMD uvicorn main:app --host "127.0.0.1" --port "5000"
+CMD uvicorn app.main:app

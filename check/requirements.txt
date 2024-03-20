@@ -14,3 +14,4 @@ alembic~=1.13.0
 requests
 asyncpg~=0.29.0
 email-validator
+python-jose==3.3.0

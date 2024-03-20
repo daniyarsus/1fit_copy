@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from fastapi.security import OAuth2PasswordBearer
 
+from check.settings.config import settings
+
 
 router = APIRouter()
 
@@ -17,7 +19,7 @@ def authenticate_user(token: str = Depends(OAuth2PasswordBearer(tokenUrl="/token
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        payload = jwt.decode(token, "123", algorithms=["HS256"])
+        payload = jwt.decode(token, "fuosdp82ipo21epoqwpoe129fdspom12", algorithms=["HS256"])
         username: str = payload.get("username")
         role: int = payload.get("role")
         if username is None or role is None:
@@ -49,7 +51,7 @@ def check_protected_endpoint(token: str):
     }
 
     # URL защищенного эндпоинта
-    url = "http://127.0.0.1:8000/protected"
+    url = "http://127.0.0.1:8000/v1/test/protected"
 
     # Отправка запроса GET к защищенному эндпоинту с использованием токена JWT
     response = requests.get(url, headers=headers)
@@ -62,4 +64,5 @@ def check_protected_endpoint(token: str):
                 response.json())
     else:
         return ("Ошибка при выполнении запроса:",
-                response.status_code)
+                response.status_code,
+                response.json())

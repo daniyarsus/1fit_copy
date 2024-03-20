@@ -30,7 +30,7 @@ app.add_middleware(
 
 
 app.include_router(item_router, prefix="/v1/item")
-app.include_router(test_router, prefix="/v1/test")
+app.include_router(test_router, prefix="/v1/demo1")
 
 
 @app.get(
