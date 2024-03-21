@@ -100,7 +100,10 @@ class RegisterService:
         try:
             stored_code = await redis_client_register.get(data.email)
             if stored_code is None:
-                raise HTTPException(status_code=404, detail="Код не был найден!")
+                raise HTTPException(
+                    status_code=404,
+                    detail="Код не был найден!"
+                )
 
             # Преобразуем код из запроса в строку
             input_code = str(data.code)

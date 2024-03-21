@@ -4,6 +4,8 @@ from datetime import datetime, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from app.utils.help.current_user import get_current_user
+
 from app.schemas.register import RegisterSchema, SendEmailCodeSchema, VerifyEmailCodeSchema
 from app.service.register import RegisterService
 from app.api.dependencies import register_service
@@ -53,7 +55,7 @@ async def verify_code_endpoint(
         data: VerifyEmailCodeSchema,
         users_service: Annotated[RegisterService, Depends(register_service)]
 ):
-    result = await users_service.veriify_code(data)
+    result = await users_service.verify_code(data)
     return result
 
 
@@ -122,11 +124,12 @@ async def change_password_endpoint(
 
 
 @router.post(
-    "/logout/del-jwt"
+    "/logout/del-token"
 )
 async def logout_user_endpoint(
         data: LogoutSchema,
-        users_service: Annotated[LogoutService, Depends(logout_service)]
+        users_service: Annotated[LogoutService, Depends(logout_service)],
+        current_user: Annotatedd[dict, Depends(get_current_user)]
 ):
     result = await users_service.logout_user(data)
     return result

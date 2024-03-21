@@ -59,9 +59,9 @@ class SQLAlchemyRepository(AbstractRepository):
     async def delete_one(self, **filters):
         async with async_session() as session:
             stmt = delete(self.model).filter_by(**filters)
-            result = await session.execute(stmt)
+            res = await session.execute(stmt)
             await session.commit()
-            return bool(result.rowcount)
+            return bool(res.rowcount)
 
     async def edit_one(self, data, **filters):
         async with async_session() as session:

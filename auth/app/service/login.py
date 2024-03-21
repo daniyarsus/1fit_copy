@@ -49,110 +49,167 @@ class LoginService:
     async def _get_user_by_username(self, username: str):
         user = await self.user_repo.get_one(username=username)
         if not user:
-            raise HTTPException(status_code=404, detail="Пользователь с указанным именем не найден!")
+            raise HTTPException(
+                status_code=404,
+                detail="Пользователь с указанным именем не найден!"
+            )
         return user
 
     async def _get_user_by_email(self, email: str):
         user = await self.user_repo.get_one(email=email)
         if not user:
-            raise HTTPException(status_code=404, detail="Пользователь с указанной почтой не найден!")
+            raise HTTPException(
+                status_code=404,
+                detail="Пользователь с указанной почтой не найден!"
+            )
         return user
 
     async def _get_user_by_phone(self, phone: str):
         user = await self.user_repo.get_one(phone=phone)
         if not user:
-            raise HTTPException(status_code=404, detail="Пользователь с указанным телефоном не найден!")
+            raise HTTPException(
+                status_code=404,
+                detail="Пользователь с указанным телефоном не найден!"
+            )
         return user
 
     async def login_by_username(self, data: LoginUsernameSchema):
-        user = await self._get_user_by_username(data.username)
+        try:
+            user = await self._get_user_by_username(data.username)
 
-        if not user.password == data.password:
-            raise HTTPException(status_code=400, detail="Неверный пароль!")
+            if not user.is_verified:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Пользователь не подтвержден!"
+                )
 
-        access_token = await self._create_access_token(
-            data={
-                "id": user.id,
-                "username": user.username,
-                "email": user.email,
-                "phone": user.phone
-            }
-        )
-        refresh_token = await self._create_refresh_token(
-            data={
-                "id": user.id,
-                "username": user.username,
-                "email": user.email,
-                "phone": user.phone
-            }
-        )
+            if not user.password == data.password:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Неверный пароль!"
+                )
 
-        await redis_client_user.set(name=str(user.id), value=refresh_token, ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+            access_token = await self._create_access_token(
+                data={
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "phone": user.phone
+                }
+            )
+            refresh_token = await self._create_refresh_token(
+                data={
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "phone": user.phone
+                }
+            )
 
-        return {"access_token": access_token, "refresh_token": refresh_token}
+            await redis_client_user.set(name=str(user.id),
+                                        value=refresh_token,
+                                        ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+
+            return {"access_token": access_token, "refresh_token": refresh_token}
+
+        except JWTError:
+            pass
+        except Exception as e:
+            raise HTTPException(detail=str(e), status_code=500)
 
     async def login_by_email(self, data: LoginEmailSchema):
-        user = await self._get_user_by_email(data.email)
+        try:
+            user = await self._get_user_by_email(data.email)
 
-        if not user.password == data.password:
-            raise HTTPException(status_code=400, detail="Неверный пароль!")
+            if not user.is_verified:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Пользователь не подтвержден!"
+                )
 
-        access_token = await self._create_access_token(
-            data={
-                "id": user.id,
-                "username": user.username,
-                "email": user.email,
-                "phone": user.phone
-            }
-        )
-        refresh_token = await self._create_refresh_token(
-            data={
-                "id": user.id,
-                "username": user.username,
-                "email": user.email,
-                "phone": user.phone
-            }
-        )
+            if not user.password == data.password:
+                raise HTTPException(status_code=400, detail="Неверный пароль!")
 
-        await redis_client_user.set(name=str(user.id), value=refresh_token, ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+            access_token = await self._create_access_token(
+                data={
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "phone": user.phone
+                }
+            )
+            refresh_token = await self._create_refresh_token(
+                data={
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "phone": user.phone
+                }
+            )
 
-        return {"access_token": access_token, "refresh_token": refresh_token}
+            await redis_client_user.set(name=str(user.id),
+                                        value=refresh_token,
+                                        ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+
+            return {"access_token": access_token, "refresh_token": refresh_token}
+
+        except JWTError:
+            pass
+        except Exception as e:
+            raise HTTPException(detail=str(e), status_code=400)
 
     async def login_by_phone(self, data: LoginPhoneSchema):
-        user = await self._get_user_by_phone(data.phone)
+        try:
+            user = await self._get_user_by_phone(data.phone)
 
-        if not user.password == data.password:
-            raise HTTPException(status_code=400, detail="Неверный пароль!")
+            if not user.is_verified:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Пользователь не подтвержден!"
+                )
 
-        access_token = await self._create_access_token(
-            data={
-                "id": user.id,
-                "username": user.username,
-                "email": user.email,
-                "phone": user.phone
-            }
-        )
-        refresh_token = await self._create_refresh_token(
-            data={
-                "id": user.id,
-                "username": user.username,
-                "email": user.email,
-                "phone": user.phone
-            }
-        )
+            if not user.password == data.password:
+                raise HTTPException(status_code=400, detail="Неверный пароль!")
 
-        await redis_client_user.set(name=str(user.id), value=refresh_token, ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+            access_token = await self._create_access_token(
+                data={
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "phone": user.phone
+                }
+            )
+            refresh_token = await self._create_refresh_token(
+                data={
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "phone": user.phone
+                }
+            )
 
-        return {"access_token": access_token, "refresh_token": refresh_token}
+            await redis_client_user.set(name=str(user.id),
+                                        value=refresh_token,
+                                        ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+
+            return {"access_token": access_token, "refresh_token": refresh_token}
+
+        except JWTError:
+            pass
+        except Exception as e:
+            raise HTTPException(detail=str(e), status_code=500)
 
     async def update_refresh_token(self, data: UpdateRefreshTokenSchema):
         try:
-            decoded_token = jwt.decode(data.refresh_token, SECRET_KEY, algorithms=[ALGORITHM])
+            decoded_token = jwt.decode(data.jwt,
+                                       SECRET_KEY,
+                                       algorithms=[ALGORITHM])
+
             user_id = decoded_token.get("id")
             if user_id:
                 refresh_token = await redis_client_user.get(str(user_id))
 
-                if refresh_token and refresh_token.decode("utf-8") == data.refresh_token:
+                if refresh_token and refresh_token.decode("utf-8") == data.jwt:
                     new_refresh_token = await self._create_refresh_token(
                         data={
                             "id": user_id,
@@ -162,11 +219,16 @@ class LoginService:
                         }
                     )
 
-                    await redis_client_user.set(name=str(user_id), value=new_refresh_token,
-                                                ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
+                    await redis_client_user.set(name=str(user_id),
+                                                value=new_refresh_token,
+                                                ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS
+                                                )
 
                     return {"refresh_token": new_refresh_token}
 
         except JWTError:
             pass
-        raise HTTPException(status_code=401, detail="Не верный токен!")
+        raise HTTPException(
+            status_code=401,
+            detail="Неверный токен!"
+        )

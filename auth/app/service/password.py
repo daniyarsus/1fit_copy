@@ -72,18 +72,34 @@ class PasswordService:
         try:
             stored_code = await redis_client_password.get(data.email)
             if stored_code is None:
-                raise HTTPException(status_code=404, detail="Код не был найден!")
+                raise HTTPException(
+                    status_code=404,
+                    detail="Код не был найден!"
+                )
 
             # Преобразуем код из запроса в строку
             input_code = str(data.code)
 
             if input_code != stored_code.decode("utf-8"):
-                raise HTTPException(status_code=400, detail="Код не подходит!")
+                raise HTTPException(
+                    status_code=400,
+                    detail="Код не подходит!"
+                )
 
             await self.users_repo.edit_one({'password': data.new_password}, email=data.email)
 
             # Удаляем код подтверждения из Redis-password
             await redis_client_password.delete(data.email)
+
+            existing_user = await self.users_repo.get_one(email=data.email)
+
+            if not existing_user:
+                raise HTTPException(
+                    status_code=404,
+                    detail="Пользователь с такой почтой не найден!"
+                )
+
+            await redis_client_user.get(existing_user.id)
 
             return JSONResponse(
                 status_code=200,
