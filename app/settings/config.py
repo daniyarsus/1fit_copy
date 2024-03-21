@@ -1,12 +1,12 @@
 import os
 
+from typing import Optional
+
 from dataclasses import dataclass
 
 from dotenv import load_dotenv
 
-##dotenv_path = os.path.join(os.path.dirname(__file__), 'auth', 'app', '.env')
 
-# Загрузка переменных из файла .env
 load_dotenv()
 
 
@@ -30,11 +30,12 @@ class PostgresDatabaseConfig:
         )
 
 
+@dataclass
 class JWTConfig:
-    SECRET_KEY = os.environ.get("SECRET_KEY")
-    ALGORITHM = os.environ.get("ALGORITHM")
-    ACCESS_TOKEN_EXPIRE_MINUTES = os.environ.get("ACCESS_TOKEN_EXPIRE_MINUTES")
-    REFRESH_TOKEN_EXPIRE_DAYS = os.environ.get("REFRESH_TOKEN_EXPIRE_DAYS")
+    SECRET_KEY = str(os.environ.get("SECRET_KEY"))
+    ALGORITHM = str(os.environ.get("ALGORITHM"))
+    ACCESS_TOKEN_EXPIRE_MINUTES = int(os.environ.get("ACCESS_TOKEN_EXPIRE_MINUTES"))
+    REFRESH_TOKEN_EXPIRE_DAYS = int(os.environ.get("REFRESH_TOKEN_EXPIRE_DAYS"))
 
     #SECRET_KEY: str = "fuosdp82ipo21epoqwpoe129fdspom12"
     #ALGORITHM: str = 'HS256'
@@ -52,15 +53,15 @@ class JWTConfig:
 
 @dataclass
 class RegisConfig:
-    REDIS_URL_JWT = os.environ.get("REDIS_URL_JWT")
-    REDIS_URL_REGISTER = os.environ.get("REDIS_URL_REGISTER")
-    REDIS_URL_PASSWORD = os.environ.get("REDIS_URL_PASSWORD")
-    REDIS_URL_USER = os.environ.get("REDIS_URL_USER")
+    #REDIS_URL_JWT: str = os.environ.get("REDIS_URL_JWT")
+    #REDIS_URL_REGISTER: str = os.environ.get("REDIS_URL_REGISTER")
+    #REDIS_URL_PASSWORD: str = os.environ.get("REDIS_URL_PASSWORD")
+    #REDIS_URL_USER: str = os.environ.get("REDIS_URL_USER")
 
-    #REDIS_URL_JWT: str = "redis://default:djeccefRRQKZqGoJBSbOKtprwgVvzHaN@viaduct.proxy.rlwy.net:41224"
-    #REDIS_URL_REGISTER: str = "redis://default:CijwltpFcTQzdvLjyEPmuVYnoigBMxkX@viaduct.proxy.rlwy.net:42928"
-    #REDIS_URL_PASSWORD: str = "redis://default:agRLsHFWsxRIxDdMVjzFeWRAuHGvUxBM@monorail.proxy.rlwy.net:16515"
-    #REDIS_URL_USER: str = "redis://default:OwOnXncfvETHiSzBSiChjgsQTdHMynrs@roundhouse.proxy.rlwy.net:48250"
+    REDIS_URL_JWT: str = "redis://default:djeccefRRQKZqGoJBSbOKtprwgVvzHaN@viaduct.proxy.rlwy.net:41224"
+    REDIS_URL_REGISTER: str = "redis://default:CijwltpFcTQzdvLjyEPmuVYnoigBMxkX@viaduct.proxy.rlwy.net:42928"
+    REDIS_URL_PASSWORD: str = "redis://default:agRLsHFWsxRIxDdMVjzFeWRAuHGvUxBM@monorail.proxy.rlwy.net:16515"
+    REDIS_URL_USER: str = "redis://default:OwOnXncfvETHiSzBSiChjgsQTdHMynrs@roundhouse.proxy.rlwy.net:48250"
 
     def __str__(self):
         return (
@@ -73,15 +74,15 @@ class RegisConfig:
 
 @dataclass
 class SMTPConfig:
-    DOMAIN_NAME = os.environ.get("DOMAIN_NAME")
-    SMTP_PORT = os.environ.get("SMTP_PORT")
-    API_KEY = os.environ.get("API_KEY")
-    EMAIL_FROM = os.environ.get("EMAIL_FROM")
+    #DOMAIN_NAME: str = str(os.environ.get("DOMAIN_NAME"))
+    #SMTP_PORT: str = str(os.environ.get("SMTP_PORT"))
+    #API_KEY: str = str(os.environ.get("API_KEY"))
+    #EMAIL_FROM: str = str(os.environ.get("EMAIL_FROM"))
 
-    #DOMAIN_NAME: str = "smtp.gmail.com"
-    #SMTP_PORT: str = "587"
-    #API_KEY: str = "bbtyxgcbnpozfepu"
-    #EMAIL_FROM: str = "y0ur.supp0rt4912385@gmail.com"
+    DOMAIN_NAME: str = "smtp.gmail.com"
+    SMTP_PORT: str = "587"
+    API_KEY: str = "bbtyxgcbnpozfepu"
+    EMAIL_FROM: str = "y0ur.supp0rt4912385@gmail.com"
 
     def __str__(self):
         return (

@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/auth/app/utils/help/current_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/api/client/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/api/client/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/repository/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/repository/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/schemas/logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/schemas/logout.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/service/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/service/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/service/password.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/service/password.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/app/service/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/app/service/register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/auth.db" beforeDir="false" afterPath="$PROJECT_DIR$/auth/auth.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +79,11 @@
       <recent name="$PROJECT_DIR$/src/services/payment" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/auth/app/utils/repository" />
       <recent name="$PROJECT_DIR$/src/app/repository" />
       <recent name="$PROJECT_DIR$/src/app/models" />
       <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/src/app/signup" />
     </key>
   </component>
   <component name="RunManager" selected="Python.base">
@@ -364,6 +357,8 @@
       <workItem from="1711039610083" duration="181000" />
       <workItem from="1711039802436" duration="166000" />
       <workItem from="1711039987406" duration="46000" />
+      <workItem from="1711041753334" duration="3835000" />
+      <workItem from="1711045742039" duration="67000" />
     </task>
     <servers />
   </component>

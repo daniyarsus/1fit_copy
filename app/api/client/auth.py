@@ -128,8 +128,17 @@ async def change_password_endpoint(
 )
 async def logout_user_endpoint(
         data: LogoutSchema,
-        users_service: Annotated[LogoutService, Depends(logout_service)],
-        current_user: Annotated[dict, Depends(get_current_user)]
+        users_service: Annotated[LogoutService, Depends(logout_service)]
 ):
     result = await users_service.logout_user(data)
     return result
+
+
+from app.models.user import User
+@router.get(
+    "/test/protected"
+)
+async def test_protected_endpoint(
+        current_user: User = Depends(get_current_user)
+):
+    return current_user
