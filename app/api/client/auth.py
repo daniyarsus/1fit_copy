@@ -129,7 +129,7 @@ async def change_password_endpoint(
 async def logout_user_endpoint(
         data: LogoutSchema,
         users_service: Annotated[LogoutService, Depends(logout_service)],
-        current_user: Annotatedd[dict, Depends(get_current_user)]
+        current_user: Annotated[dict, Depends(get_current_user)]
 ):
     result = await users_service.logout_user(data)
     return result

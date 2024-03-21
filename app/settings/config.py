@@ -1,28 +1,28 @@
-#import os
+import os
 
 from dataclasses import dataclass
 
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 ##dotenv_path = os.path.join(os.path.dirname(__file__), 'auth', 'app', '.env')
 
 # Загрузка переменных из файла .env
-#load_dotenv(dotenv_path=dotenv_path)
+load_dotenv()
 
 
 @dataclass
 class PostgresDatabaseConfig:
-    #DB_HOST = os.environ.get("DB_HOST2")
-    #DB_PORT = os.environ.get("DB_PORT2")
-    #DB_NAME = os.environ.get("DB_NAME2")
-    #DB_USER = os.environ.get("DB_USER2")
-    #DB_PASS = os.environ.get("DB_PASS2")
+    DB_HOST = os.environ.get("DB_HOST")
+    DB_PORT = os.environ.get("DB_PORT")
+    DB_NAME = os.environ.get("DB_NAME")
+    DB_USER = os.environ.get("DB_USER")
+    DB_PASS = os.environ.get("DB_PASS")
 
-    DB_USER: str = "postgres"
-    DB_PASS: str = "RhfMdjAVyrGSeDjMGCsImnpWCTCSthVh"
-    DB_HOST: str = "roundhouse.proxy.rlwy.net"
-    DB_PORT: str = "14793"
-    DB_NAME: str = "railway"
+    #DB_USER: str = "postgres"
+    #DB_PASS: str = "RhfMdjAVyrGSeDjMGCsImnpWCTCSthVh"
+    #DB_HOST: str = "roundhouse.proxy.rlwy.net"
+    #DB_PORT: str = "14793"
+    #DB_NAME: str = "railway"
 
     def __str__(self):
         return (
@@ -32,6 +32,9 @@ class PostgresDatabaseConfig:
 
 class JWTConfig:
     #SECRET_KEY = os.environ.get("SECRET_KEY")
+    #ALGORITHM = os.environ.get("ALGORITHM")
+    #ACCESS_TOKEN_EXPIRE_MINUTES = os.environ.get("ACCESS_TOKEN_EXPIRE_MINUTES")
+    #REFRESH_TOKEN_EXPIRE_MINUTES = os.environ.get("REFRESH_TOKEN_EXPIRE_MINUTES")
 
     SECRET_KEY: str = "fuosdp82ipo21epoqwpoe129fdspom12"
     ALGORITHM: str = 'HS256'
@@ -51,6 +54,8 @@ class JWTConfig:
 class RegisConfig:
     #REDIS_URL_JWT = os.environ.get("REDIS_URL_JWT")
     #REDIS_URL_REGISTER = os.environ("REDIS_URL_REGISTER")
+    #REDIS_URL_PASSWORD = os.environ("REDIS_URL_PASSWORD")
+    #REDIS_URL_USER = os.environ("REDIS_URL_USER")
 
     REDIS_URL_JWT: str = "redis://default:djeccefRRQKZqGoJBSbOKtprwgVvzHaN@viaduct.proxy.rlwy.net:41224"
     REDIS_URL_REGISTER: str = "redis://default:CijwltpFcTQzdvLjyEPmuVYnoigBMxkX@viaduct.proxy.rlwy.net:42928"
@@ -69,7 +74,7 @@ class RegisConfig:
 @dataclass
 class SMTPConfig:
     #DOMAIN_NAME = os.environ.get("DOMAIN_NAME")
-    #SMTP_PORT = os.environ.get("SMTP_PORT)
+    #SMTP_PORT = os.environ.get("SMTP_PORT")
     #API_KEY = os.environ.get("API_KEY")
     #EMAIL_FROM = os.environ.get("EMAIL_FROM")
 

@@ -91,15 +91,15 @@ class PasswordService:
             # Удаляем код подтверждения из Redis-password
             await redis_client_password.delete(data.email)
 
-            existing_user = await self.users_repo.get_one(email=data.email)
+            #existing_user = await self.users_repo.get_one(email=data.email)
+#
+            #if not existing_user:
+            #    raise HTTPException(
+            #        status_code=404,
+            #        detail="Пользователь с такой почтой не найден!"
+            #    )
 
-            if not existing_user:
-                raise HTTPException(
-                    status_code=404,
-                    detail="Пользователь с такой почтой не найден!"
-                )
-
-            await redis_client_user.get(existing_user.id)
+            #await redis_client_user.get(existing_user.id)
 
             return JSONResponse(
                 status_code=200,
