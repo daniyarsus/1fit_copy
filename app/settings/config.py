@@ -12,17 +12,17 @@ load_dotenv()
 
 @dataclass
 class PostgresDatabaseConfig:
-    DB_HOST = os.environ.get("DB_HOST")
-    DB_PORT = os.environ.get("DB_PORT")
-    DB_NAME = os.environ.get("DB_NAME")
-    DB_USER = os.environ.get("DB_USER")
-    DB_PASS = os.environ.get("DB_PASS")
+    #DB_HOST = os.environ.get("DB_HOST")
+    #DB_PORT = os.environ.get("DB_PORT")
+    #DB_NAME = os.environ.get("DB_NAME")
+    #DB_USER = os.environ.get("DB_USER")
+    #DB_PASS = os.environ.get("DB_PASS")
 
-    #DB_USER: str = "postgres"
-    #DB_PASS: str = "RhfMdjAVyrGSeDjMGCsImnpWCTCSthVh"
-    #DB_HOST: str = "roundhouse.proxy.rlwy.net"
-    #DB_PORT: str = "14793"
-    #DB_NAME: str = "railway"
+    DB_USER: str = "postgres"
+    DB_PASS: str = "pXqpwTRIpOPXpmdiQfSqaTjkGHgyAzlr"
+    DB_HOST: str = "roundhouse.proxy.rlwy.net"
+    DB_PORT: str = "49813"
+    DB_NAME: str = "railway"
 
     def __str__(self):
         return (
