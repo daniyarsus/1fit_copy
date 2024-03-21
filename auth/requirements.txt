@@ -18,6 +18,7 @@ python-jose==3.3.0
 aiosqlite
 gunicorn
 redis==5.0.3
+jose
 aiohttp
 aiosignal
 attrs
