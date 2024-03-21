@@ -4,8 +4,8 @@ from sqlalchemy.orm import DeclarativeBase
 from app.settings.config import settings
 
 async_engine = create_async_engine(
-    #url=str(settings.pg_database),
-    url="sqlite+aiosqlite:///./auth.db",
+    url=str(settings.pg_database),
+    #url="sqlite+aiosqlite:///./auth.db",
     echo=False
 )
 

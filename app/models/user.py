@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from sqlalchemy import BigInteger, Column
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.settings.db.connection import Base
@@ -14,7 +15,8 @@ class User(Base):
     username: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
     email: Mapped[str] = mapped_column(unique=True)
-    phone: Mapped[int] = mapped_column(unique=True)
+    #phone: Mapped[int] = mapped_column(unique=True)
+    phone = Column(BigInteger)
     is_verified: Mapped[bool] = mapped_column(default=False)
     created_at: Mapped[datetime] = mapped_column(default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(default=datetime.utcnow, onupdate=datetime.utcnow)

@@ -19,9 +19,9 @@ class PostgresDatabaseConfig:
     #DB_PASS = os.environ.get("DB_PASS")
 
     DB_USER: str = "postgres"
-    DB_PASS: str = "pXqpwTRIpOPXpmdiQfSqaTjkGHgyAzlr"
+    DB_PASS: str = "POqtSKRshJavfUCVuLCGsBKVrlRTACmV"
     DB_HOST: str = "roundhouse.proxy.rlwy.net"
-    DB_PORT: str = "49813"
+    DB_PORT: str = "57119"
     DB_NAME: str = "railway"
 
     def __str__(self):
