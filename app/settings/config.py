@@ -53,15 +53,15 @@ class JWTConfig:
 
 @dataclass
 class RegisConfig:
-    #REDIS_URL_JWT: str = os.environ.get("REDIS_URL_JWT")
-    #REDIS_URL_REGISTER: str = os.environ.get("REDIS_URL_REGISTER")
-    #REDIS_URL_PASSWORD: str = os.environ.get("REDIS_URL_PASSWORD")
-    #REDIS_URL_USER: str = os.environ.get("REDIS_URL_USER")
+    REDIS_URL_JWT: str = str(os.environ.get("REDIS_URL_JWT"))
+    REDIS_URL_REGISTER: str = str(os.environ.get("REDIS_URL_REGISTER"))
+    REDIS_URL_PASSWORD: str = str(os.environ.get("REDIS_URL_PASSWORD"))
+    REDIS_URL_USER: str = str(os.environ.get("REDIS_URL_USER"))
 
-    REDIS_URL_JWT: str = "redis://default:djeccefRRQKZqGoJBSbOKtprwgVvzHaN@viaduct.proxy.rlwy.net:41224"
-    REDIS_URL_REGISTER: str = "redis://default:CijwltpFcTQzdvLjyEPmuVYnoigBMxkX@viaduct.proxy.rlwy.net:42928"
-    REDIS_URL_PASSWORD: str = "redis://default:agRLsHFWsxRIxDdMVjzFeWRAuHGvUxBM@monorail.proxy.rlwy.net:16515"
-    REDIS_URL_USER: str = "redis://default:OwOnXncfvETHiSzBSiChjgsQTdHMynrs@roundhouse.proxy.rlwy.net:48250"
+    #REDIS_URL_JWT: str = "redis://default:djeccefRRQKZqGoJBSbOKtprwgVvzHaN@viaduct.proxy.rlwy.net:41224"
+    #REDIS_URL_REGISTER: str = "redis://default:CijwltpFcTQzdvLjyEPmuVYnoigBMxkX@viaduct.proxy.rlwy.net:42928"
+    #REDIS_URL_PASSWORD: str = "redis://default:agRLsHFWsxRIxDdMVjzFeWRAuHGvUxBM@monorail.proxy.rlwy.net:16515"
+    #REDIS_URL_USER: str = "redis://default:OwOnXncfvETHiSzBSiChjgsQTdHMynrs@roundhouse.proxy.rlwy.net:48250"
 
     def __str__(self):
         return (
@@ -76,14 +76,13 @@ class RegisConfig:
 class SMTPConfig:
     #DOMAIN_NAME: str = str(os.environ.get("DOMAIN_NAME"))
     #SMTP_PORT: str = str(os.environ.get("SMTP_PORT"))
-    #API_KEY: str = str(os.environ.get("API_KEY"))
-    #EMAIL_FROM: str = str(os.environ.get("EMAIL_FROM"))
+    #API_KEY: str = str(os.environ.get("SMTP_API_KEY"))
+    #EMAIL_FROM: str = str(os.environ.get("SMTP_EMAIL_FROM"))
 
     DOMAIN_NAME: str = "smtp.gmail.com"
     SMTP_PORT: str = "587"
     API_KEY: str = "bbtyxgcbnpozfepu"
     EMAIL_FROM: str = "y0ur.supp0rt4912385@gmail.com"
-
     def __str__(self):
         return (
             f"DOMAIN_NAME: {self.DOMAIN_NAME}, "
