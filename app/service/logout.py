@@ -9,7 +9,7 @@ from jose import jwt, JWTError
 
 from app.schemas.logout import LogoutSchema
 
-from app.settings.redis.connection import redis_client_jwt
+from app.settings.redis.connection import redis_client_auth
 
 from app.settings.config import settings
 
@@ -19,7 +19,6 @@ class LogoutService:
     async def logout_user(data: LogoutSchema) -> Optional[JSONResponse | HTTPException]:
         try:
             token = data.jwt
-            token_ttl = int(timedelta(minutes=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS).total_seconds())
 
             # Декодировать JWT и получить полезную нагрузку
             try:
@@ -31,16 +30,18 @@ class LogoutService:
                 )
 
             id = payload["id"]
+            session_id = payload["session_id"]
             # Добавить в Redis JWT в качестве ключа и имя пользователя в качестве значения
-            await redis_client_jwt.set(name=id, value=token, ex=token_ttl)
+
+            await redis_client_auth.delete(f"jwt_user_id:{id}_session_id:{session_id}")
+
+            return JSONResponse(content={
+                "message": "Пользователь успешно вышел из сессии!"
+            }
+            )
 
         except Exception as e:
             raise HTTPException(
                 status_code=500,
                 detail=str(e)
             )
-
-        return JSONResponse(content={
-            "message": "Пользователь успешно вышел из сессии!"
-            }
-        )

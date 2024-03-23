@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/logout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/password.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/password.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/settings/redis/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/redis/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +93,7 @@
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.config">
     <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="1fit_copy" />
       <option name="ENV_FILES" value="" />
@@ -110,7 +117,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="controllers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="1fit_copy" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,12 +126,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo1/app/signup" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/settings" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo1/app/signup/controllers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/settings/config.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -210,18 +217,18 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.config" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.base" />
         <item itemvalue="Python.module2" />
-        <item itemvalue="Python.controllers" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
       </set>
     </attachedChunks>
   </component>
@@ -364,6 +371,8 @@
       <workItem from="1711095413883" duration="849000" />
       <workItem from="1711097020975" duration="3104000" />
       <workItem from="1711102613100" duration="1224000" />
+      <workItem from="1711117417756" duration="3364000" />
+      <workItem from="1711142732470" duration="6398000" />
     </task>
     <servers />
   </component>
@@ -376,7 +385,7 @@
     <SUITE FILE_PATH="coverage/1fit_copy$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1710747382507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/app" />
     <SUITE FILE_PATH="coverage/1fit_copy$main.coverage" NAME="main Coverage Results" MODIFIED="1711103829611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/1fit_copy$test.coverage" NAME="test Coverage Results" MODIFIED="1711096250869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/1fit_copy$config.coverage" NAME="config Coverage Results" MODIFIED="1710697846502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/auth/app/settings" />
+    <SUITE FILE_PATH="coverage/1fit_copy$config.coverage" NAME="config Coverage Results" MODIFIED="1711142882602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/settings" />
     <SUITE FILE_PATH="coverage/1fit_copy$handlers.coverage" NAME="handlers Coverage Results" MODIFIED="1710752909894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/app/signup" />
     <SUITE FILE_PATH="coverage/1fit_copy$module2.coverage" NAME="module2 Coverage Results" MODIFIED="1710756982950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/service2" />
     <SUITE FILE_PATH="coverage/1fit_copy$config__1_.coverage" NAME="config (1) Coverage Results" MODIFIED="1710748863537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/app/settings" />

@@ -12,7 +12,7 @@ from app.repository.base import AbstractRepository
 from app.schemas.register import RegisterSchema, SendEmailCodeSchema, VerifyEmailCodeSchema
 
 from app.settings.config import settings
-from app.settings.redis.connection import redis_client_register
+from app.settings.redis.connection import redis_client_auth
 
 from app.utils.help.generate_code import generate_verification_code
 
@@ -67,7 +67,7 @@ class RegisterService:
                     detail="Почта уже верифицирована!"
                 )
 
-            await redis_client_register.set(name=data.email, value=code, ex=120)
+            await redis_client_auth.set(name=f"verify_email:{data.email}", value=code, ex=120)
 
             # Отправка письма
             message = f"Код подтверждения: {str(code)}"
@@ -98,7 +98,7 @@ class RegisterService:
 
     async def verify_code(self, data: VerifyEmailCodeSchema) -> Optional[JSONResponse | HTTPException]:
         try:
-            stored_code = await redis_client_register.get(data.email)
+            stored_code = await redis_client_auth.get(f"verify_email:{data.email}")
             if stored_code is None:
                 raise HTTPException(
                     status_code=404,
@@ -114,7 +114,7 @@ class RegisterService:
             await self.users_repo.edit_one({'is_verified': True}, email=data.email)
 
             # Удаляем код подтверждения из Redis
-            await redis_client_register.delete(data.email)
+            await redis_client_auth.delete(f"verify_email:{data.email}")
 
             return JSONResponse(
                 status_code=200,

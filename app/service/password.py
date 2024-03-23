@@ -12,7 +12,7 @@ from app.repository.base import AbstractRepository
 from app.schemas.password import SendPasswordCodeSchema, VerifyPasswordCodedSchema
 
 from app.settings.config import settings
-from app.settings.redis.connection import redis_client_password, redis_client_user, redis_client_jwt
+from app.settings.redis.connection import redis_client_auth
 
 from app.utils.help.generate_code import generate_verification_code
 
@@ -39,7 +39,7 @@ class PasswordService:
                     detail="Пользователь не подтвержден!"
                 )
 
-            await redis_client_password.set(name=data.email, value=code, ex=120)
+            await redis_client_auth.set(name=f"verify_password:{data.email}", value=code, ex=120)
 
             # Отправка письма
             message = f"Код подтверждения: {str(code)}"
@@ -70,7 +70,9 @@ class PasswordService:
 
     async def verify_code(self, data: VerifyPasswordCodedSchema) -> Optional[JSONResponse | HTTPException]:
         try:
-            stored_code = await redis_client_password.get(data.email)
+            existing_user = await self.users_repo.get_one(email=data.email)
+
+            stored_code = await redis_client_auth.get(f"verify_password:{data.email}")
             if stored_code is None:
                 raise HTTPException(
                     status_code=404,
@@ -88,18 +90,19 @@ class PasswordService:
 
             await self.users_repo.edit_one({'password': data.new_password}, email=data.email)
 
-            # Удаляем код подтверждения из Redis-password
-            await redis_client_password.delete(data.email)
+            await redis_client_auth.delete(f"verify_password:{data.email}")
 
-            #existing_user = await self.users_repo.get_one(email=data.email)
-#
-            #if not existing_user:
-            #    raise HTTPException(
-            #        status_code=404,
-            #        detail="Пользователь с такой почтой не найден!"
-            #    )
+            all_keys = await redis_client_auth.keys('*')
 
-            #await redis_client_user.get(existing_user.id)
+            # Проходимся по каждому ключу
+            for key in all_keys:
+                # Проверяем, соответствует ли ключ шаблону "jwt_user_id:{user_id}_session_id:*"
+                if key.startswith(b"jwt_user_id:" + str(existing_user.id).encode("utf-8") + b"_session_id:"):
+                    await redis_client_auth.delete(key)
+
+                # А так же оказывается в Redis можно удалять данные не дописывая необязательные значения
+                # if key.startswith(b"jwt_user_id:" + str(existing_user.id).encode("utf-8"):
+                #     await redis_client_auth.delete(key)
 
             return JSONResponse(
                 status_code=200,

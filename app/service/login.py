@@ -1,5 +1,8 @@
 from typing import Optional
+
 from datetime import datetime, timedelta
+
+import uuid
 
 from fastapi import HTTPException
 
@@ -11,7 +14,7 @@ from app.schemas.login import LoginUsernameSchema, LoginEmailSchema, LoginPhoneS
 
 from app.settings.config import settings
 
-from app.settings.redis.connection import redis_client_user
+from app.settings.redis.connection import redis_client_auth
 
 
 SECRET_KEY = settings.jwt_config.SECRET_KEY
@@ -89,12 +92,15 @@ class LoginService:
                     detail="Неверный пароль!"
                 )
 
+            session_id = str(uuid.uuid4())
+
             access_token = await self._create_access_token(
                 data={
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phone
+                    "phone": user.phone,
+                    "session_id": session_id
                 }
             )
             refresh_token = await self._create_refresh_token(
@@ -102,11 +108,12 @@ class LoginService:
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phone
+                    "phone": user.phone,
+                    "session_id": session_id
                 }
             )
 
-            await redis_client_user.set(name=str(user.id),
+            await redis_client_auth.set(name=f"jwt_user_id:{str(user.id)}_session_id:{str(session_id)}",
                                         value=refresh_token,
                                         ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
@@ -130,12 +137,15 @@ class LoginService:
             if not user.password == data.password:
                 raise HTTPException(status_code=400, detail="Неверный пароль!")
 
+            session_id = str(uuid.uuid4())
+
             access_token = await self._create_access_token(
                 data={
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phone
+                    "phone": user.phone,
+                    "session_id": session_id
                 }
             )
             refresh_token = await self._create_refresh_token(
@@ -143,11 +153,12 @@ class LoginService:
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phone
+                    "phone": user.phone,
+                    "session_id": session_id
                 }
             )
 
-            await redis_client_user.set(name=str(user.id),
+            await redis_client_auth.set(name=f"jwt_user_id:{str(user.id)}_session_id:{session_id}",
                                         value=refresh_token,
                                         ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
@@ -171,12 +182,15 @@ class LoginService:
             if not user.password == data.password:
                 raise HTTPException(status_code=400, detail="Неверный пароль!")
 
+            session_id = str(uuid.uuid4())
+
             access_token = await self._create_access_token(
                 data={
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phone
+                    "phone": user.phone,
+                    "session_id": session_id
                 }
             )
             refresh_token = await self._create_refresh_token(
@@ -184,11 +198,12 @@ class LoginService:
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phone
+                    "phone": user.phonem,
+                    "session_id": session_id
                 }
             )
 
-            await redis_client_user.set(name=str(user.id),
+            await redis_client_auth.set(name=f"jwt_user_id:{str(user.id)}_session_id:{session_id}",
                                         value=refresh_token,
                                         ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
@@ -206,6 +221,7 @@ class LoginService:
                                        algorithms=[ALGORITHM])
 
             user_id = decoded_token.get("id")
+            session_id = decoded_token.get("session_id")
             if user_id:
                 refresh_token = await redis_client_user.get(str(user_id))
 
@@ -215,14 +231,14 @@ class LoginService:
                             "id": user_id,
                             "username": decoded_token.get("username"),
                             "email": decoded_token.get("email"),
-                            "phone": decoded_token.get("phone")
+                            "phone": decoded_token.get("phone"),
+                            "session_id": str(uuid.uuid4())
                         }
                     )
 
-                    await redis_client_user.set(name=str(user_id),
-                                                value=new_refresh_token,
-                                                ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS
-                                                )
+                    await redis_client_auth.set(name=f"jwt_user_id:{str(user_id)}_session_id:{session_id}",
+                                                value=refresh_token,
+                                                ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
 
                     return {"refresh_token": new_refresh_token}
 
