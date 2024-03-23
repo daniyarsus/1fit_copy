@@ -3,6 +3,8 @@ from typing import Optional
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 
+from passlib.context import CryptContext
+
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -17,9 +19,13 @@ from app.settings.redis.connection import redis_client_auth
 from app.utils.help.generate_code import generate_verification_code
 
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
 class RegisterService:
     def __init__(self, users_repo: AbstractRepository):
         self.users_repo: AbstractRepository = users_repo()
+        self.pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
     async def register_user(self, data: RegisterSchema) -> Optional[JSONResponse | HTTPException]:
         try:
@@ -34,6 +40,7 @@ class RegisterService:
                 )
 
             user_dict = data.dict()
+            user_dict["password"] = self.pwd_context.hash(data.password)  # Хеширование пароля
             result = await self.users_repo.add_one(user_dict)
             if result:
                 return JSONResponse(
@@ -42,7 +49,6 @@ class RegisterService:
                         "message": "Пользователь зарегистрирован успешно!"
                     }
                 )
-
         except Exception as e:
             return HTTPException(
                 status_code=500,

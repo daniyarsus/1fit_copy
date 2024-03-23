@@ -3,6 +3,8 @@ from typing import Optional
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 
+from passlib.context import CryptContext
+
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -17,9 +19,13 @@ from app.settings.redis.connection import redis_client_auth
 from app.utils.help.generate_code import generate_verification_code
 
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
 class PasswordService:
     def __init__(self, users_repo: AbstractRepository):
         self.users_repo: AbstractRepository = users_repo()
+        self.pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
     async def send_code(self, data: SendPasswordCodeSchema) -> Optional[JSONResponse | HTTPException]:
         try:
@@ -89,6 +95,11 @@ class PasswordService:
                 )
 
             await self.users_repo.edit_one({'password': data.new_password}, email=data.email)
+
+            # Хешируем новый пароль
+            hashed_password = self.pwd_context.hash(data.new_password)
+
+            await self.users_repo.edit_one({'password': hashed_password}, email=data.email)
 
             await redis_client_auth.delete(f"verify_password:{data.email}")
 

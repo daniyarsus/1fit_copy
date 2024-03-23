@@ -12,11 +12,11 @@ load_dotenv()
 
 @dataclass
 class PostgresDatabaseConfig:
-    DB_HOST = str(os.environ.get("DB_HOST_AUTH"))
-    DB_PORT = str(os.environ.get("DB_PORT_AUTH"))
-    DB_NAME = str(os.environ.get("DB_NAME_AUTH"))
-    DB_USER = str(os.environ.get("DB_USER_AUTH"))
-    DB_PASS = str(os.environ.get("DB_PASS_AUTH"))
+    DB_HOST = str(os.environ.get("DB_HOST"))
+    DB_PORT = str(os.environ.get("DB_PORT"))
+    DB_NAME = str(os.environ.get("DB_NAME"))
+    DB_USER = str(os.environ.get("DB_USER_"))
+    DB_PASS = str(os.environ.get("DB_PASS"))
 
     def __str__(self):
         return (
@@ -42,7 +42,7 @@ class JWTConfig:
 
 @dataclass
 class RegisConfig:
-    REDIS_URL_AUTH = str(os.environ.get("REDIS_URL_AUTH"))
+    REDIS_URL_AUTH = str(os.environ.get("REDIS_URL"))
 
     def __str__(self):
         return (

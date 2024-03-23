@@ -6,6 +6,8 @@ import uuid
 
 from fastapi import HTTPException
 
+from passlib.context import CryptContext
+
 from jose import jwt, JWTError
 
 from app.repository.base import AbstractRepository
@@ -23,9 +25,13 @@ ACCESS_TOKEN_EXPIRE_MINUTES = settings.jwt_config.ACCESS_TOKEN_EXPIRE_MINUTES
 REFRESH_TOKEN_EXPIRE_DAYS = settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS
 
 
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
 class LoginService:
     def __init__(self, user_repo: AbstractRepository):
         self.user_repo = user_repo()
+        self.pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
     @staticmethod
     async def _create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
@@ -86,7 +92,7 @@ class LoginService:
                     detail="Пользователь не подтвержден!"
                 )
 
-            if not user.password == data.password:
+            if not self.pwd_context.verify(data.password, user.password):
                 raise HTTPException(
                     status_code=400,
                     detail="Неверный пароль!"
@@ -134,8 +140,11 @@ class LoginService:
                     detail="Пользователь не подтвержден!"
                 )
 
-            if not user.password == data.password:
-                raise HTTPException(status_code=400, detail="Неверный пароль!")
+            if not self.pwd_context.verify(data.password, user.password):
+                raise HTTPException(
+                    status_code=400,
+                    detail="Неверный пароль!"
+                )
 
             session_id = str(uuid.uuid4())
 
@@ -179,8 +188,11 @@ class LoginService:
                     detail="Пользователь не подтвержден!"
                 )
 
-            if not user.password == data.password:
-                raise HTTPException(status_code=400, detail="Неверный пароль!")
+            if not self.pwd_context.verify(data.password, user.password):
+                raise HTTPException(
+                    status_code=400,
+                    detail="Неверный пароль!"
+                )
 
             session_id = str(uuid.uuid4())
 
@@ -198,7 +210,7 @@ class LoginService:
                     "id": user.id,
                     "username": user.username,
                     "email": user.email,
-                    "phone": user.phonem,
+                    "phone": user.phone,
                     "session_id": session_id
                 }
             )
@@ -214,37 +226,3 @@ class LoginService:
         except Exception as e:
             raise HTTPException(detail=str(e), status_code=500)
 
-    async def update_refresh_token(self, data: UpdateRefreshTokenSchema):
-        try:
-            decoded_token = jwt.decode(data.jwt,
-                                       SECRET_KEY,
-                                       algorithms=[ALGORITHM])
-
-            user_id = decoded_token.get("id")
-            session_id = decoded_token.get("session_id")
-            if user_id:
-                refresh_token = await redis_client_user.get(str(user_id))
-
-                if refresh_token and refresh_token.decode("utf-8") == data.jwt:
-                    new_refresh_token = await self._create_refresh_token(
-                        data={
-                            "id": user_id,
-                            "username": decoded_token.get("username"),
-                            "email": decoded_token.get("email"),
-                            "phone": decoded_token.get("phone"),
-                            "session_id": str(uuid.uuid4())
-                        }
-                    )
-
-                    await redis_client_auth.set(name=f"jwt_user_id:{str(user_id)}_session_id:{session_id}",
-                                                value=refresh_token,
-                                                ex=settings.jwt_config.REFRESH_TOKEN_EXPIRE_DAYS)
-
-                    return {"refresh_token": new_refresh_token}
-
-        except JWTError:
-            pass
-        raise HTTPException(
-            status_code=401,
-            detail="Неверный токен!"
-        )
