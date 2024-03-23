@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from app.utils.help.current_user import get_current_user
+from app.utils.help.authenticate_user import get_authenticate_user
 
 from app.schemas.register import RegisterSchema, SendEmailCodeSchema, VerifyEmailCodeSchema
 from app.service.register import RegisterService
@@ -134,36 +134,6 @@ async def logout_user_endpoint(
     return result
 
 
-from fastapi.security import OAuth2PasswordBearer
-from jose import jwt, JWTError
-from app.settings.config import settings
-def authenticate_user(token: str = Depends(OAuth2PasswordBearer(tokenUrl="api/v1/signin/token-username"))):
-    # Декодирование JWT токена
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    try:
-        payload = jwt.decode(token, settings.jwt_config.SECRET_KEY, algorithms=["HS256"])
-        id: str = payload.get("id")
-        username: str = payload.get("username")
-        phone: int = payload.get("phone")
-        if username is None or phone is None:
-            raise credentials_exception
-    except JWTError:
-        raise credentials_exception
-
-    # Проверка роли пользователя
-    if not id > 0:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Айди чет у тебя не верное",
-        )
-    return username
-
-
 @router.get("/protected")
-async def get_protected_resource(username: str = Depends(authenticate_user)):
-    return {"message": f"Welcome, {username}! You have access to this protected resource."}
-
+async def get_protected_resource(payload: str = Depends(get_authenticate_user)):
+    return {"message": f"{payload}"}

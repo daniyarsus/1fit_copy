@@ -76,5 +76,3 @@ class Settings:
 
 
 settings: Settings = Settings()
-
-print(str(settings.smtp_config))
