@@ -12,11 +12,11 @@ load_dotenv()
 
 @dataclass
 class PostgresDatabaseConfig:
-    DB_HOST = os.environ.get("DB_HOST_AUTH")
-    DB_PORT = os.environ.get("DB_PORT_AUTH")
-    DB_NAME = os.environ.get("DB_NAME_AUTH")
-    DB_USER = os.environ.get("DB_USER_AUTH")
-    DB_PASS = os.environ.get("DB_PASS_AUTH")
+    DB_HOST = str(os.environ.get("DB_HOST_AUTH"))
+    DB_PORT = str(os.environ.get("DB_PORT_AUTH"))
+    DB_NAME = str(os.environ.get("DB_NAME_AUTH"))
+    DB_USER = str(os.environ.get("DB_USER_AUTH"))
+    DB_PASS = str(os.environ.get("DB_PASS_AUTH"))
 
     def __str__(self):
         return (

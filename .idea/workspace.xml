@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53f11d61-d40e-423a-b2d5-f823961019f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/service/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/settings/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,39 +38,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.app/Dockerfile: Compose Deployment.executor": "Run",
-    "Docker.auth/Dockerfile.executor": "Run",
-    "Docker.auth/Dockerfile: Compose Deployment.executor": "Run",
-    "Docker.auth_service/Dockerfile.executor": "Run",
-    "Docker.check/Dockerfile.executor": "Run",
-    "Docker.src/Dockerfile: Compose Deployment.executor": "Run",
-    "Python.auth.executor": "Run",
-    "Python.base.executor": "Run",
-    "Python.config (1).executor": "Run",
-    "Python.config (2).executor": "Run",
-    "Python.config.executor": "Run",
-    "Python.controllers.executor": "Run",
-    "Python.database.executor": "Run",
-    "Python.db.executor": "Run",
-    "Python.handlers.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.module2.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/king/PycharmProjects/1fit_copy/src/app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.app/Dockerfile: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.auth/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.auth/Dockerfile: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.auth_service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.check/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.src/Dockerfile: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Python.auth.executor&quot;: &quot;Run&quot;,
+    &quot;Python.base.executor&quot;: &quot;Run&quot;,
+    &quot;Python.config (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.config (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.controllers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database.executor&quot;: &quot;Run&quot;,
+    &quot;Python.db.executor&quot;: &quot;Run&quot;,
+    &quot;Python.handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.module2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/king/PycharmProjects/1fit_copy/src/app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app" />
@@ -350,7 +352,8 @@
       <workItem from="1711097020975" duration="3104000" />
       <workItem from="1711102613100" duration="1224000" />
       <workItem from="1711117417756" duration="3364000" />
-      <workItem from="1711142732470" duration="8219000" />
+      <workItem from="1711142732470" duration="8687000" />
+      <workItem from="1711172945294" duration="1040000" />
     </task>
     <servers />
   </component>
