@@ -48,5 +48,5 @@ async def index():
 for router in all_routers:
     app.include_router(router, prefix='/api/v1', tags=['Auth endpoints - API'])
 
-if __name__ == "__main__":
-    uvicorn.run(app)
+#if __name__ == "__main__":
+#    uvicorn.run(app)

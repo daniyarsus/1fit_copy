@@ -35,9 +35,10 @@ class LogoutService:
 
             await redis_client_auth.delete(f"jwt_user_id:{id}_session_id:{session_id}")
 
-            return JSONResponse(content={
-                "message": "Пользователь успешно вышел из сессии!"
-            }
+            return JSONResponse(
+                content={
+                    "message": "Пользователь успешно вышел из сессии!"
+                }
             )
 
         except Exception as e:
