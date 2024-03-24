@@ -235,7 +235,7 @@ class LoginService:
             user_id = decoded_token.get("id")
             session_id = decoded_token.get("session_id")
             if user_id:
-                refresh_token = await redis_client_user.get(str(user_id))
+                refresh_token = await redis_client_auth.get(f"jwt_user_id:{str(user_id)}_session_id:{session_id}")
 
                 if refresh_token and refresh_token.decode("utf-8") == data.jwt:
                     new_refresh_token = await self._create_refresh_token(
