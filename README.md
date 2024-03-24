@@ -26,11 +26,10 @@ ___
 git clone https://github.com/daniyarsus/1fit_copy_auth.git
 ```
 
-___
-
-### API - документация:
+### Переход в папку проекта:
 ```
-hhtp://localhost:8000/docs
+cd 1fit_copy_auth
+cd auth
 ```
 
 ___
@@ -38,6 +37,14 @@ ___
 ### Запуск проекта через uvicorn
 ```
 uvicorn app.main:app --reload
+```
+
+___
+
+
+### API - документация:
+```
+hhtp://127.0.0.1:8000/docs
 ```
 
 ___
@@ -52,6 +59,16 @@ http://0.0.0.0:8000 - для доступа к сервису через API
 
 ___
 
+### Остановка докер контейнера и композа:
+```
+docker ps -a
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker ps -a
+docker-compose down
+```
+
+___
 ### Запуск проекта через docker-compose 
 ```
 docker-compose up
