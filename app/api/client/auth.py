@@ -136,4 +136,5 @@ async def logout_user_endpoint(
 
 @router.get("/protected")
 async def get_protected_resource(payload: str = Depends(get_authenticate_user)):
-    return {"message": f"{payload}"}
+    return payload
+    #return payload["id"], payload['username'], payload['email'], payload['phone'], payload['session_id']

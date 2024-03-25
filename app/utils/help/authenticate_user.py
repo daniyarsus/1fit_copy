@@ -16,7 +16,7 @@ async def get_authenticate_user(token: str = Depends(oauth2_scheme)):
     )
 
     try:
-        payload = jwt.decode(token, settings.jwt_config.SECRET_KEY, algorithms=["HS256"])
+        payload = jwt.decode(token, str(settings.jwt_config.SECRET_KEY), algorithms=["HS256"])
         id: str = payload.get("id")
         session_id: str = payload.get("session_id")
         if id is None or session_id is None:
@@ -33,4 +33,16 @@ async def get_authenticate_user(token: str = Depends(oauth2_scheme)):
             headers={"WWW-Authenticate": "Bearer"},
         )
 
-    return payload
+    phone: str = payload.get("phone")
+    email: str = payload.get("email")
+    username: str = payload.get("username")
+
+    result = {
+        "id": id,
+        "username": username,
+        "email": email,
+        "phone": phone,
+        "session_id": session_id
+    }
+
+    return result
