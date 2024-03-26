@@ -44,4 +44,4 @@ async def index():
 
 
 for router in all_routers:
-    app.include_router(router, prefix='/api/v1', tags=['Auth endpoints - API'])
+    app.include_router(router)

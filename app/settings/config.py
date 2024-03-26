@@ -16,7 +16,10 @@ class EnvSettings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(..., env='ACCESS_TOKEN_EXPIRE_MINUTES')
     REFRESH_TOKEN_EXPIRE_DAYS: int = Field(..., env='REFRESH_TOKEN_EXPIRE_DAYS')
 
-    REDIS_URL: str = Field(..., env='REDIS_URL')
+    REDIS_USER: str = Field(..., env='REDIS_USER')
+    REDIS_PASS: str = Field(..., env='REDIS_PASS')
+    REDIS_HOST: str = Field(..., env='REDIS_HOST')
+    REDIS_PORT: str = Field(..., env='REDIS_PORT')
 
     SMTP_DOMAIN_NAME: str = Field(..., env='SMTP_DOMAIN_NAME')
     SMTP_PORT: str = Field(..., env='SMTP_PORT')
@@ -38,9 +41,6 @@ class PostgresDatabaseConfig:
     DB_PORT: str = env_settings.DB_PORT
     DB_NAME: str = env_settings.DB_NAME
 
-    def __str__(self):
-        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
-
 
 @dataclass
 class JWTConfig:
@@ -52,7 +52,10 @@ class JWTConfig:
 
 @dataclass
 class RedisConfig:
-    REDIS_URL: str = env_settings.REDIS_URL
+    REDIS_USER: str = env_settings.REDIS_USER
+    REDIS_PASS: str = env_settings.REDIS_PASS
+    REDIS_HOST: str = env_settings.REDIS_HOST
+    REDIS_PORT: str = env_settings.REDIS_PORT
 
 
 @dataclass
@@ -68,7 +71,7 @@ class Settings:
     def __init__(self):
         self.pg_database = PostgresDatabaseConfig()
         self.jwt_config = JWTConfig()
-        self.regis_config = RedisConfig()
+        self.redis_config = RedisConfig()
         self.smtp_config = SMTPConfig()
 
 

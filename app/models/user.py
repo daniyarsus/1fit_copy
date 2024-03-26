@@ -21,7 +21,22 @@ class User(Base):
     created_at: Mapped[datetime] = mapped_column(default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(default=datetime.utcnow, onupdate=datetime.utcnow)
 
+    @classmethod
+    def delete_unverified_users(cls, session):
+        """
+        Удаляет всех пользователей, которые не подтвердили свою учетную запись в течение 7 дней.
+        """
+        seven_days_ago = datetime.utcnow() - timedelta(days=7)
+        unverified_users = session.query(cls).filter(cls.is_verified == False,
+                                                     cls.created_at <= seven_days_ago).all()
+        for user in unverified_users:
+            session.delete(user)
+        session.commit()
+
     def to_read_model(self) -> ReadUserModel:
+        """
+        Преобразует объект пользователя в ReadUserMode
+        """
         return ReadUserModel(
             id=self.id,
             username=self.username,

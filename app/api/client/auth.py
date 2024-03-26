@@ -23,7 +23,7 @@ from app.service.logout import LogoutService
 from app.api.dependencies import logout_service
 
 
-router = APIRouter()
+router = APIRouter(prefix='/api/v1', tags=['Auth endpoints - API'])
 
 
 @router.post(
