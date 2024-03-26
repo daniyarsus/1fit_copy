@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:13
     environment:
-      POSTGRES_USER: postgres_app
+      POSTGRES_USER: default
       POSTGRES_PASSWORD: POqtSKRshJavfUCVuLCGsBKVrlRTACmV
       POSTGRES_HOST: roundhouse.proxy.rlwy.net
       POSTGRES_PORT: 57119
@@ -16,8 +16,12 @@ services:
     image: redis:7
     container_name: redis_app
     environment:
-      - REDIS_USER: redis_app
-      - REDIS_PASSWORD: POqtSKRshJavfUCVuLCGsBKVrlRTACmV
+      - REDIS_USER = default
+      - REDIS_PASSWORD = POqtSKRshJavfUCVuLCGsBKVrlRTACmV
+      - REDIS_HOST = roundhouse.proxy.rlwy.net
+      - REDIS_PORT = 57119
+    env_file:
+      - .env
 
   app:
     build:
